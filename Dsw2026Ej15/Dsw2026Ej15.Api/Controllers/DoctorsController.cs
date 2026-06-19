@@ -41,7 +41,7 @@ public class DoctorsController : ControllerBase
 
 
     [HttpGet("doctors")]
-    public async Task<ActionResult<IEnumerable<Doctor>>> Get()
+    public async Task<IActionResult> GetAllDoctors()
     {
         var doctores = _persistence.GetDoctores();
         return Ok(doctores);
