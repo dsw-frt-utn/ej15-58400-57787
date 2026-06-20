@@ -10,5 +10,8 @@ public interface IPersistence
     Speciality? GetSpecialityById(Guid id);
     void SaveDoctor(Doctor doctor);
     IEnumerable<Doctor> GetDoctores();
+    Doctor? GetByIdDoctor(Guid id);
+    void DeleteDoctor(Doctor doctor);
+
 
 }

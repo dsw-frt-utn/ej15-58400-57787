@@ -50,7 +50,19 @@ public class PersistenceInMemory : IPersistence
     }
     public IEnumerable<Doctor> GetDoctores()
     {
-        return Doctores;
+        return Doctores.Where(d => d.IsActive == true).ToList();
     }
 
+    public Doctor? GetByIdDoctor(Guid id)
+    {
+        var doctor = Doctores.SingleOrDefault(p => p.Id == id) ?? null;
+        return doctor;
+    }
+
+    public void DeleteDoctor(Doctor doctor)
+    {
+        doctor.IsActive = false;
+    }
 }
+
+
